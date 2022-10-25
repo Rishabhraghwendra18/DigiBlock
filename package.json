@@ -1,0 +1,28 @@
+{
+  "name": "fevm-dapp-starter-kit",
+  "version": "1.0.0",
+  "description": "Starter kit for building Dapp on FEVM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rk-rishikesh/FEVM-Dapp-Starter-Kit.git"
+  },
+  "author": "Rishikesh Kale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rk-rishikesh/FEVM-Dapp-Starter-Kit/issues"
+  },
+  "homepage": "https://github.com/rk-rishikesh/FEVM-Dapp-Starter-Kit#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "hardhat": "^2.12.0"
+  },
+  "dependencies": {
+    "@glif/filecoin-address": "^2.0.13",
+    "hardhat-deploy": "^0.11.18",
+    "hardhat-deploy-ethers": "^0.3.0-beta.13"
+  }
+}
