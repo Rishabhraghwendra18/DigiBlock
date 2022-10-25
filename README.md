@@ -21,9 +21,14 @@
 
 > Note the contract address and locate the contract abi under deployments folder and replace it inside the contants file uder client folder.
 
+### Install node modules inside client folder
+```bash
+  cd client
+  npm install
+```
+
 ### To deploy this project run
 
 ```bash
-  cd client
   npm run start
 ```
