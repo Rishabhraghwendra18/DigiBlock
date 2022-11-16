@@ -9,6 +9,8 @@
   cd FEVM-Dapp-Starter-Kit
   npm install
 ```
+### Update the private key
+Add your deployment account private key in hardhat config file.
 
 ### Compile the Smart Contracts
 ```bash
