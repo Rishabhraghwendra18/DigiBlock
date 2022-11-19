@@ -1,0 +1,67 @@
+.home__conatiner {
+  display: flex;
+  flex-direction: rows;
+  gap: 1rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  margin-top: 4rem;
+}
+.options-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10rem;
+  border-radius: 1rem;
+  flex: 1 1 0px;
+}
+.button {
+  background-color: white;
+  color: #00501e;
+  border-radius: 9999px;
+  border: none;
+  padding: 1rem;
+  width: 10rem;
+  font-weight: 400;
+  text-decoration: inherit;
+  cursor: pointer;
+}
+.app__heading {
+  text-align: center;
+}
+/* .div__studentlogin {
+  height: 40vh;
+  width: 60vh;
+  background-color: #abfe2c;
+  margin-right: 4rem;
+  border-radius: 1rem;
+  margin-left: 3rem;
+}
+.div__explore {
+  height: 40vh;
+  width: 60vh;
+  background-color: #00501e;
+  margin-right: 4rem;
+  border-radius: 1rem;
+}
+.div__studentrecord {
+  height: 40vh;
+  width: 60vh;
+  background-color: #abfe2c;
+  border-radius: 1rem;
+}
+.nav__button {
+  background-color: white;
+  border-radius: 9999px;
+  border: none;
+  padding: 1rem;
+  width: 10rem;
+  font-weight: 400;
+  text-decoration: inherit;
+}
+.nav__buttoncontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
