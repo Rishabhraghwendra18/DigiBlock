@@ -1,9 +1,11 @@
 require("@nomicfoundation/hardhat-toolbox");
 require('hardhat-deploy');
 require('hardhat-deploy-ethers')
+require('dotenv').config()
 
 
 /** @type import('hardhat/config').HardhatUserConfig */
+const { PRIVATE_KEY } = process.env;
 module.exports = {
   solidity: "0.8.17",
   defaultNetwork: "wallaby",
