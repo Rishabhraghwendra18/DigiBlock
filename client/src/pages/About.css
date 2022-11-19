@@ -1,0 +1,10 @@
+.about__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #abfe2c;
+  margin-top: 5rem;
+}
+.about {
+  height: 50vh;
+}

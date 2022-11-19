@@ -1,0 +1,23 @@
+.nav__container {
+  background-color: #fcfcfc;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+}
+.nav__buttoncontainer {
+  display: flex;
+  float: right;
+  margin-right: 10rem;
+  margin-top: 1.5rem;
+}
+.nav__button {
+  background-color: #abfe2c;
+  color: #00501e;
+  border-radius: 9999px;
+  border: none;
+  padding: 1rem;
+  width: 10rem;
+  font-weight: 400;
+  text-decoration: inherit;
+  cursor: pointer;
+}

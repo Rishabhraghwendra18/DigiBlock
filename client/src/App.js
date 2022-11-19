@@ -2,17 +2,13 @@ import { useState } from "react";
 import { ethers } from "ethers";
 import { CONTRACT_ADDRESS } from "./Constants.js";
 import { CONTRACT_ABI } from "./Constants.js";
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import { BrowserRouter } from 'react-router-dom';
+import { getRoute } from './utils/router-helper';
 import "./App.css";
 
 export default function App() {
   const [publicKey, setPublickey] = useState();
- 
+
   const [chainId, setChainId] = useState();
   const [msg, setMsg] = useState();
   const [notice, setNotice] = useState();
@@ -34,7 +30,7 @@ export default function App() {
   };
 
   const readNotice = async (provider) => {
-    
+
     const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, provider);
     console.log(contract)
     const notice = await contract.getNotice();
@@ -42,7 +38,7 @@ export default function App() {
     setNotice(notice);
     const noticeBy = await contract.getUserByNotice(notice);
     setNoticeBy(noticeBy);
-    
+
   }
 
   const writeNotice = async () => {
@@ -53,60 +49,21 @@ export default function App() {
     console.log(updatedNotice)
     let tx = await contract.setNotice(updatedNotice, {
       gasLimit: 1000000000, // BlockGasLimit / 10
-  });
+    });
 
-  console.log(tx)
-  await readNotice(provider);
+    console.log(tx)
+    await readNotice(provider);
   }
-
+  const CurrentApp = getRoute();
   return (
     <div className="App">
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand>
-            Notice Board
-          </Navbar.Brand>
-          <Button variant="light" onClick={connectButton}>Connect Wallet</Button>
-        </Container>
-      </Navbar>
-
-      <p>Connected To: {publicKey}</p>
-      <p>Chain ID : {chainId}</p>
-      {msg && <p>{msg}</p>}
-      <br/>
-
-      <div className="Notice">
-      <InputGroup className="mb-3">
-        <Form.Control
-          placeholder="Enter updated notice here ..."
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-          onChange={(e) => {
-            setUpdatedNotice(e.target.value);
-          }}
-        />
-        <Button variant="outline-secondary" id="button-addon2" onClick ={() => {writeNotice()}}>
-          Update Notice
-        </Button>
-      </InputGroup>
-
-      <Card>
-      <Card.Header>Notice</Card.Header>
-      <Card.Body>
-        <blockquote className="blockquote mb-0">
-          <p>
-            {' '}
-            {notice}
-            {' '}
-          </p>
-          <footer className="blockquote-footer">
-            {noticedBy}
-          </footer>
-        </blockquote>
-      </Card.Body>
-    </Card>
-      </div>
-      
+      {/* <About></About>
+      <Home></Home>
+      <Student></Student>
+      <MintStudent></MintStudent> */}
+      <BrowserRouter>
+        <CurrentApp />
+      </BrowserRouter>
     </div>
   );
 }
