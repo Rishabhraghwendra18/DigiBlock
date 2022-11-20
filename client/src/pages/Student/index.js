@@ -17,6 +17,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import CourseLogo from "../../assets/c++ logo.png";
 
 
 function Student() {
@@ -87,6 +88,7 @@ function Student() {
                         <TabList onChange={handleChange} TabIndicatorProps={{ style: { backgroundColor: "#abfe2c ", color: "#abfe2c " } }} aria-label="lab API tabs example">
                             <CustomTab label="Academic Record" value="Academic Record" />
                             <CustomTab label="Courses Taken" value="Courses Taken" />
+                            <CustomTab label="Take Courses" value="Take Courses" />
                         </TabList>
                     </Box>
                     <TabPanel value="Academic Record">Academic Record</TabPanel>
@@ -135,6 +137,18 @@ function Student() {
                             </div>
 
                         </div>
+                    </TabPanel>
+                    <TabPanel value="Take Courses">
+                        <div className='courserecord__container'>
+                            <div >
+                                <img className='record__logo' src={CourseLogo} alt="course logo"></img>
+                            </div>
+                            <div className='name__conatiner'>
+                                <h3>C++ Course</h3>
+                                <p className="course">Duration 25hrs</p>
+                            </div>
+                        </div>
+
                     </TabPanel>
 
                 </TabContext>
