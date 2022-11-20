@@ -85,7 +85,7 @@ function Student() {
                 <TabContext value={value}>
                     <Box  >
                         <TabList onChange={handleChange} TabIndicatorProps={{ style: { backgroundColor: "#abfe2c ", color: "#abfe2c " } }} aria-label="lab API tabs example">
-                            <CustomTab label="Acedmic Record" value="Acedmic Record" />
+                            <CustomTab label="Academic Record" value="Academic Record" />
                             <CustomTab label="Courses Taken" value="Courses Taken" />
                         </TabList>
                     </Box>
