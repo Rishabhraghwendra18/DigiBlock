@@ -8,6 +8,7 @@
   border-radius: 1rem;
   background-color: white;
   cursor: pointer;
+  box-shadow: 5px 5px 5px grey;
 }
 .record__logo {
   object-fit: contain;
