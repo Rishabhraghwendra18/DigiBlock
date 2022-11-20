@@ -8,6 +8,7 @@ import { alpha, styled } from "@mui/material/styles";
 import Navbar from "../Navbar";
 import Form from "./Form";
 import CourseForm from './Form/CourseForm';
+import AwardToken from "./Form/AwardToken";
 
 function MintStudent() {
   const [value, setValue] = React.useState("Mint Student Academic Record");
@@ -49,6 +50,10 @@ function MintStudent() {
                 label="Mint Course Record"
                 value="Mint Course Record"
               />
+              <CustomTab
+                label="Award Token"
+                value="Award Token"
+              />
             </TabList>
           </Box>
           <TabPanel value="Mint Student Academic Record">
@@ -56,6 +61,9 @@ function MintStudent() {
           </TabPanel>
           <TabPanel value="Mint Course Record">
             <CourseForm title="Mint Course Record"/>
+          </TabPanel>
+          <TabPanel value="Award Token">
+            <AwardToken title="Award Token"/>
           </TabPanel>
         </TabContext>
       </Box>
