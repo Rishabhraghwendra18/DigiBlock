@@ -7,6 +7,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import { alpha, styled } from "@mui/material/styles";
 import Navbar from "../Navbar";
 import Form from "./Form";
+import CourseForm from './Form/CourseForm';
 
 function MintStudent() {
   const [value, setValue] = React.useState("Mint Student Academic Record");
@@ -53,7 +54,9 @@ function MintStudent() {
           <TabPanel value="Mint Student Academic Record">
             <Form title="Mint Student Academic Record"/>
           </TabPanel>
-          <TabPanel value="Mint Course Record">Item Two</TabPanel>
+          <TabPanel value="Mint Course Record">
+            <CourseForm title="Mint Course Record"/>
+          </TabPanel>
         </TabContext>
       </Box>
     </div>
