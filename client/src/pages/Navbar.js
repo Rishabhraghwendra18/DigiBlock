@@ -6,16 +6,6 @@ import "./Navbar.css";
 import Logo from "../assets/Logo.png"
 
 function Navbar({ isMainApp,setUserAddress=()=>{} }) {
-  const onButtonClick = () => {
-    // const domain = getSubdomain();
-    // let subdomain;
-    // if (domain === 'localhost') subdomain = 'app.' + domain + ':3000'
-    // else {
-    //     subdomain = 'app.' + domain + '.com'
-    // }
-    // window.open(subdomain, '_blank');
-    window.open('app.localhost:3000');
-  };
 
   const [publicKey, setPublickey] = useState();
 
@@ -53,7 +43,7 @@ function Navbar({ isMainApp,setUserAddress=()=>{} }) {
               {publicKey !== undefined && publicKey !== null ? `${publicKey?.slice(0, 7)}...${publicKey?.slice(35)}` : "Connect Wallet"}
             </button>
           ) : (
-            <a className="nav__button" onClick={onButtonClick} href="http://app.localhost:3000">
+            <a className="nav__button" href="http://app.localhost:3000">
               LAUNCH APP
             </a>
           )}
