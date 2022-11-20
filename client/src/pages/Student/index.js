@@ -66,8 +66,8 @@ function Student() {
         },
     }));
 
-    function createData(CoursesTaken, Grades) {
-        return { CoursesTaken, Grades };
+    function createData(Courses, Grades) {
+        return { Courses, Grades };
     }
     const rows = [
         createData('Pyhton Course', 80),
@@ -109,19 +109,19 @@ function Student() {
                                             <Table sx={{ minWidth: 300 }} aria-label="customized table">
                                                 <TableHead>
                                                     <TableRow>
-                                                        <StyledTableCell>Courses Taken</StyledTableCell>
+                                                        <StyledTableCell>Courses</StyledTableCell>
                                                         <StyledTableCell align="right">Grades</StyledTableCell>
 
                                                     </TableRow>
                                                 </TableHead>
                                                 <TableBody>
                                                     {rows.map((row) => (
-                                                        <StyledTableRow key={row.name}>
+                                                        <StyledTableRow key={row.Courses}>
                                                             <StyledTableCell component="th" scope="row">
-                                                                {row.name}
+                                                                {row.Courses}
                                                             </StyledTableCell>
-                                                            <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                                                            <StyledTableCell align="right">{row.fat}</StyledTableCell>
+                                                            <StyledTableCell align="right">{row.Grades}</StyledTableCell>
+                                                            <StyledTableCell align="right">{row.Grades}</StyledTableCell>
 
                                                         </StyledTableRow>
                                                     ))}
