@@ -19,6 +19,7 @@ import React, { useState } from "react";
 import { NFTStorage, File } from "nft.storage";
 
 function Form({ title }) {
+  const [solAddress, setSolAddress] = useState();
   const [soulFirstName, setSoulFirstName] = useState();
   const [soulLastName, setSoulLastName] = useState();
   const [courseName, setCourseName] = useState();
@@ -57,16 +58,16 @@ function Form({ title }) {
 
   const mintSolToken = async (tokenURI) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const account = await provider.send("eth_requestAccounts", []);
-    const signer = provider.getSigner()[0];
+    const account = await provider.send("eth_requestAccounts", [])[0];
+    const signer = provider.getSigner();
     const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
     console.log(contract)
-    let tx = await contract.mintNFT(account,tokenURI, {
+    let tx = await contract.mintNFT(solAddress,tokenURI, {
       gasLimit: 1000000000, // BlockGasLimit / 10
     });
 
     console.log(tx);
-    handleSnackBarOpen(`Minting SOL token. Tx hash ${tx}`);
+    handleSnackBarOpen(`Minting SOL token. Tx hash ${tx?.hash}`);
   }
 
   async function storeAsset() {
@@ -99,13 +100,13 @@ function Form({ title }) {
         metadataURI = 'https://ipfs.io/ipfs/'+metadataURI[1];
     }
     handleSnackBarOpen('Minting Soul Token...');
-    await mintSolToken();
+    await mintSolToken(metadataURI);
     handleSnackBarOpen('Minted successfully');
   }
 
-  const onSubmit = (event) => {
-    storeAsset();
+  const onSubmit = async (event) => {
     event.preventDefault();
+    await storeAsset();
   };
   return (
     <div>
@@ -121,6 +122,7 @@ function Form({ title }) {
                   label="Soul Address"
                   placeholder="Enter Soul Address"
                   variant="outlined"
+                  onChange={(e) => setSolAddress(e.target.value)}
                   fullWidth
                   required
                 />
