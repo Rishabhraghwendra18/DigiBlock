@@ -30,7 +30,7 @@ function MintStudent() {
         paddingright: "0.8rem",
       }}
     >
-      <Navbar></Navbar>
+      <Navbar isMainApp={true}></Navbar>
       <Box sx={{ width: "100%", typography: "body1", paddingLeft: "5rem" }}>
         <TabContext value={value}>
           <Box>
