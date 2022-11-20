@@ -91,13 +91,13 @@ function Student() {
                     </Box>
                     <TabPanel value="Acedmic Record">Item One</TabPanel>
                     <TabPanel value="Courses Taken">
-                        <div className='courserecord__container'>
+                        <div className='courserecord__container' onClick={handleOpen} >
                             <div >
                                 <img className='record__logo' src={HARVARD} alt="record logo"></img>
                             </div>
                             <div className='name__conatiner'>
                                 <h3>Rishabh Raghwendra</h3>
-                                <p onClick={handleOpen} className="course">Courses Taken</p>
+                                <p className="course">Python Course</p>
                                 <Modal
                                     open={open}
                                     onClose={handleClose}

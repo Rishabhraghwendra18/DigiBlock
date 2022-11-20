@@ -1,5 +1,4 @@
 .courserecord__container {
-  background-color: #abfe2c;
   height: 30vh;
   width: 20vw;
   display: flex;
@@ -7,6 +6,8 @@
   justify-content: center;
   flex-direction: row;
   border-radius: 1rem;
+  background-color: white;
+  cursor: pointer;
 }
 .record__logo {
   object-fit: contain;
