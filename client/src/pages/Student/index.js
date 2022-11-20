@@ -20,7 +20,7 @@ import Paper from '@mui/material/Paper';
 
 
 function Student() {
-    const [value, setValue] = React.useState('Acedmic Record');
+    const [value, setValue] = React.useState('Academic Record');
     const [open, setOpen] = React.useState(false);
     const [userAddress, setUserAddress] = useState();
 
@@ -90,11 +90,11 @@ function Student() {
                 <TabContext value={value}>
                     <Box  >
                         <TabList onChange={handleChange} TabIndicatorProps={{ style: { backgroundColor: "#abfe2c ", color: "#abfe2c " } }} aria-label="lab API tabs example">
-                            <CustomTab label="Acedmic Record" value="Acedmic Record" />
+                            <CustomTab label="Academic Record" value="Academic Record" />
                             <CustomTab label="Courses Taken" value="Courses Taken" />
                         </TabList>
                     </Box>
-                    <TabPanel value="Acedmic Record">
+                    <TabPanel value="Academic Record">
                         {userAddress!==undefined ? (
                     <div className='courserecord__container' onClick={handleOpen} >
                             <div >
@@ -142,7 +142,7 @@ function Student() {
                             </div>
 
                         </div>
-                        ):"Connect wallet to see your Acedmics record"}
+                        ):"Connect wallet to see your Academics record"}
                     </TabPanel>
                     <TabPanel value="Courses Taken">
                         {userAddress!== undefined ? (
