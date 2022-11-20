@@ -14,6 +14,7 @@ function Navbar({ isMainApp }) {
     //     subdomain = 'app.' + domain + '.com'
     // }
     // window.open(subdomain, '_blank');
+    window.open('app.localhost:3000');
   };
 
   const [publicKey, setPublickey] = useState();
@@ -51,9 +52,9 @@ function Navbar({ isMainApp }) {
               {publicKey !== undefined && publicKey !== null ? `${publicKey?.slice(0, 7)}...${publicKey?.slice(35)}` : "Connect Wallet"}
             </button>
           ) : (
-            <button className="nav__button" onClick={onButtonClick}>
+            <a className="nav__button" onClick={onButtonClick} href="http://app.localhost:3000">
               LAUNCH APP
-            </button>
+            </a>
           )}
         </div>
       </div>
