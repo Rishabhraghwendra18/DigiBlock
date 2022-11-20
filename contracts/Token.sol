@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Token is ERC20 {
     address payable owner;
-    uint8 tokenDiscountValue;
+    uint8 tokenDiscountValue; // 1 token = 1% discount
 
     constructor(address payable _owner,string memory _tokenName,string memory _tokenSymbol) ERC20(_tokenName,_tokenSymbol) {
         owner = _owner;
@@ -18,10 +18,10 @@ contract Token is ERC20 {
     }
 
     function transfer(address _to, uint256 _value) public virtual override onlyOwner returns(bool) {
-        super.transfer(_to,_value);
+        return super.transfer(_to,_value);
     }
     function transferFrom(address _from, uint256 _value) public returns(bool) {
-        super.transferFrom(_from,address(this),_value);
+        return super.transferFrom(_from,address(this),_value);
     }
     function setDiscountValue(uint8 _tokenDiscountValue) public onlyOwner{
         tokenDiscountValue = _tokenDiscountValue;
