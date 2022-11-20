@@ -96,8 +96,8 @@ function Student() {
                                 <img className='record__logo' src={HARVARD} alt="record logo"></img>
                             </div>
                             <div className='name__conatiner'>
-                                <h1>Rishabh Raghwendra</h1>
-                                <p onClick={handleOpen} className="course">Python Course Certificate</p>
+                                <h3>Rishabh Raghwendra</h3>
+                                <p onClick={handleOpen} className="course">Courses Taken</p>
                                 <Modal
                                     open={open}
                                     onClose={handleClose}
@@ -121,7 +121,7 @@ function Student() {
                                                                 {row.Courses}
                                                             </StyledTableCell>
                                                             <StyledTableCell align="right">{row.Grades}</StyledTableCell>
-                                                            <StyledTableCell align="right">{row.Grades}</StyledTableCell>
+
 
                                                         </StyledTableRow>
                                                     ))}

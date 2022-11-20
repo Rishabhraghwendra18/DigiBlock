@@ -1,16 +1,17 @@
 .courserecord__container {
   background-color: #abfe2c;
-  height: 70vh;
-  width: 80vw;
+  height: 30vh;
+  width: 20vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  border-radius: 1rem;
 }
 .record__logo {
   object-fit: contain;
-  width: 60vw;
-  height: 50vh;
+  width: 8vw;
+  height: 15vh;
   float: left;
 }
 .name__conatiner {
