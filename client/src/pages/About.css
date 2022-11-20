@@ -4,7 +4,11 @@
   justify-content: center;
   background-color: #abfe2c;
   margin-top: 5rem;
+  flex-direction: row;
 }
 .about {
   height: 50vh;
+}
+.about__image {
+  float: left;
 }
