@@ -21,3 +21,9 @@
   text-decoration: inherit;
   cursor: pointer;
 }
+.nav__logocontainer {
+  float: left;
+  height: 5vh;
+  width: 5vw;
+  padding-left: 2rem;
+}
