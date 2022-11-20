@@ -12,6 +12,9 @@ import {
 // import IconButton from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { ethers } from "ethers";
+import { CONTRACT_ADDRESS } from "../../../Constants";
+import { CONTRACT_ABI } from "../../../Constants";
 import React, { useState } from "react";
 import { NFTStorage, File } from "nft.storage";
 
@@ -52,6 +55,20 @@ function Form({ title }) {
     setSnackBarState({ ...snackBarState, open: false });
   };
 
+  const mintSolToken = async (tokenURI) => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const account = await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner()[0];
+    const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+    console.log(contract)
+    let tx = await contract.mintNFT(account,tokenURI, {
+      gasLimit: 1000000000, // BlockGasLimit / 10
+    });
+
+    console.log(tx);
+    handleSnackBarOpen(`Minting SOL token. Tx hash ${tx}`);
+  }
+
   async function storeAsset() {
     const fileLogo = await fetch("../../../assets/HarvadLogo.png");
     const blob = await fileLogo.blob();
@@ -75,9 +92,14 @@ function Form({ title }) {
         remarks,
       },
     });
-    handleSnackBarOpen('Minting Soul Token...');
     console.clear();
     console.log("Metadata stored on Filecoin and IPFS with URL:", metadata.url);
+    let metadataURI = metadata.url.split("//");
+    if(metadataURI.length ==2){
+        metadataURI = 'https://ipfs.io/ipfs/'+metadataURI[1];
+    }
+    handleSnackBarOpen('Minting Soul Token...');
+    await mintSolToken();
     handleSnackBarOpen('Minted successfully');
   }
 
