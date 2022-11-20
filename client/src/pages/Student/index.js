@@ -202,6 +202,7 @@ function Student() {
                             <div className='name__conatiner'>
                                 <h3>C++ Course</h3>
                                 <p className="course">Duration 25hrs</p>
+                                <p className="course">Price $10</p>
                             </div>
                         </div>
 
