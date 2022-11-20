@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Navbar from '../Navbar'
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -22,6 +22,7 @@ import Paper from '@mui/material/Paper';
 function Student() {
     const [value, setValue] = React.useState('Acedmic Record');
     const [open, setOpen] = React.useState(false);
+    const [userAddress, setUserAddress] = useState();
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -34,7 +35,10 @@ function Student() {
         }
     }));
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClose = () => {
+        console.log("closing");
+        setOpen(false);
+    };
     const style = {
         position: 'absolute',
         top: '50%',
@@ -74,13 +78,14 @@ function Student() {
         createData('Artifical Intelligence', 70),
 
     ];
+
     return (
         <div style={{
             gap: ' 1rem',
             paddingleft: ' 0.8rem',
             paddingright: '0.8rem'
         }}>
-            <Navbar></Navbar>
+            <Navbar isMainApp={true} setUserAddress={setUserAddress}></Navbar>
             <Box sx={{ width: '100%', typography: 'body1', paddingLeft: "5rem" }}>
                 <TabContext value={value}>
                     <Box  >
@@ -89,8 +94,58 @@ function Student() {
                             <CustomTab label="Courses Taken" value="Courses Taken" />
                         </TabList>
                     </Box>
-                    <TabPanel value="Acedmic Record">Item One</TabPanel>
+                    <TabPanel value="Acedmic Record">
+                        {userAddress!==undefined ? (
+                    <div className='courserecord__container' onClick={handleOpen} >
+                            <div >
+                                <img className='record__logo' src={HARVARD} alt="record logo"></img>
+                            </div>
+                            <div className='name__conatiner'>
+                                <h3>Rishabh Raghwendra</h3>
+                                <p className="course">6th Semester</p>
+                                {open && (
+                                <Modal
+                                    open={open}                                
+                                    onClose={handleClose}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                >
+                                    <Box sx={style}>
+                                        <TableContainer component={Paper}>
+                                            <Table sx={{ minWidth: 300 }} aria-label="customized table">
+                                                <TableHead>
+                                                    <TableRow>
+                                                        <StyledTableCell>Courses</StyledTableCell>
+                                                        <StyledTableCell align="right">Grades</StyledTableCell>
+
+                                                    </TableRow>
+                                                </TableHead>
+                                                <TableBody>
+                                                    {rows.map((row) => (
+                                                        <StyledTableRow key={row.Courses}>
+                                                            <StyledTableCell component="th" scope="row">
+                                                                {row.Courses}
+                                                            </StyledTableCell>
+                                                            <StyledTableCell align="right">{row.Grades}</StyledTableCell>
+
+
+                                                        </StyledTableRow>
+                                                    ))}
+                                                </TableBody>
+                                            </Table>
+                                        </TableContainer>
+
+                                    </Box>
+
+                                </Modal>
+                                )}
+                            </div>
+
+                        </div>
+                        ):"Connect wallet to see your Acedmics record"}
+                    </TabPanel>
                     <TabPanel value="Courses Taken">
+                        {userAddress!== undefined ? (
                         <div className='courserecord__container' onClick={handleOpen} >
                             <div >
                                 <img className='record__logo' src={HARVARD} alt="record logo"></img>
@@ -99,7 +154,7 @@ function Student() {
                                 <h3>Rishabh Raghwendra</h3>
                                 <p className="course">Python Course</p>
                                 <Modal
-                                    open={open}
+                                    open={open}                                
                                     onClose={handleClose}
                                     aria-labelledby="modal-modal-title"
                                     aria-describedby="modal-modal-description"
@@ -135,6 +190,7 @@ function Student() {
                             </div>
 
                         </div>
+                        ):"Connect wallet to see your Courses taken"}
                     </TabPanel>
 
                 </TabContext>

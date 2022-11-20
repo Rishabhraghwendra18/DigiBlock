@@ -5,7 +5,7 @@ import { CONTRACT_ABI } from "../Constants";
 import "./Navbar.css";
 import Logo from "../assets/Logo.png"
 
-function Navbar({ isMainApp }) {
+function Navbar({ isMainApp,setUserAddress=()=>{} }) {
   const onButtonClick = () => {
     // const domain = getSubdomain();
     // let subdomain;
@@ -33,6 +33,7 @@ function Navbar({ isMainApp }) {
       const { chainId } = await provider.getNetwork();
       setChainId(chainId);
       setPublickey(accounts[0]);
+      setUserAddress(accounts[0]);
       console.log("accounts: ", accounts[0]);
       // await readNotice(provider);
     } else {
