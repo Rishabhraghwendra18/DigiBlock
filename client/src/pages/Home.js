@@ -15,7 +15,7 @@ function Home() {
                 <h1 className='app__heading'>Student Login</h1>
 
 
-                <button className='button' >LAUNCH APP</button>
+                <a className='button' href='http://student.localhost:3000'>LAUNCH APP</a>
 
             </div>
             <div className='options-div' style={{ backgroundColor: '#00501e', color: '#abfe2c' }}>
@@ -23,7 +23,7 @@ function Home() {
                     <img className='home__login' src={RECORD} alt="record"></img>
                 </div>
                 <h1 className='app__heading'>Explore Student Record</h1>
-                <button className='button' >LAUNCH APP</button>
+                <a className='button' href='http://student.localhost:3000' >LAUNCH APP</a>
 
             </div>
             <div className='options-div' style={{ backgroundColor: '#abfe2c', color: '#00501e' }}>
@@ -31,7 +31,7 @@ function Home() {
                     <img className='home__login' src={STUDENT} alt="student"></img>
                 </div>
                 <h1 className='app__heading'>Mint Student Record</h1>
-                <button className='button' >LAUNCH APP</button>
+                <a className='button' href='http://mint.localhost:3000'>LAUNCH APP</a>
             </div>
         </div>
     )

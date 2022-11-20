@@ -5,7 +5,7 @@ import { CONTRACT_ABI } from "../Constants";
 import "./Navbar.css";
 import Logo from "../assets/Logo.png"
 
-function Navbar({ isMainApp }) {
+function Navbar({ isMainApp,setUserAddress=()=>{} }) {
   const onButtonClick = () => {
     // const domain = getSubdomain();
     // let subdomain;
@@ -14,6 +14,7 @@ function Navbar({ isMainApp }) {
     //     subdomain = 'app.' + domain + '.com'
     // }
     // window.open(subdomain, '_blank');
+    window.open('app.localhost:3000');
   };
 
   const [publicKey, setPublickey] = useState();
@@ -32,6 +33,7 @@ function Navbar({ isMainApp }) {
       const { chainId } = await provider.getNetwork();
       setChainId(chainId);
       setPublickey(accounts[0]);
+      setUserAddress(accounts[0]);
       console.log("accounts: ", accounts[0]);
       // await readNotice(provider);
     } else {
@@ -51,9 +53,9 @@ function Navbar({ isMainApp }) {
               {publicKey !== undefined && publicKey !== null ? `${publicKey?.slice(0, 7)}...${publicKey?.slice(35)}` : "Connect Wallet"}
             </button>
           ) : (
-            <button className="nav__button" onClick={onButtonClick}>
+            <a className="nav__button" onClick={onButtonClick} href="http://app.localhost:3000">
               LAUNCH APP
-            </button>
+            </a>
           )}
         </div>
       </div>
