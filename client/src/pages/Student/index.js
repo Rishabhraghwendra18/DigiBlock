@@ -89,7 +89,7 @@ function Student() {
                             <CustomTab label="Courses Taken" value="Courses Taken" />
                         </TabList>
                     </Box>
-                    <TabPanel value="Acedmic Record">Item One</TabPanel>
+                    <TabPanel value="Academic Record">Academic Record</TabPanel>
                     <TabPanel value="Courses Taken">
                         <div className='courserecord__container' onClick={handleOpen} >
                             <div >
