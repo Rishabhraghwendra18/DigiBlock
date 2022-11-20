@@ -4,7 +4,7 @@ pragma solidity ^0.8.12;
 import './Token.sol';
 
 contract TokenFactory {
-    mapping (address => address) userToToken;
+    mapping (address => address) public userToToken;
     function deployToken(string memory _tokenName, string memory _tokenSymbol) public returns (address) {
         require(msg.sender != address(0),"Address 0 not allowed");
         Token token= new Token(payable(msg.sender),_tokenName, _tokenSymbol);

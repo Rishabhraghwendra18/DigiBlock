@@ -7,8 +7,10 @@
   flex-direction: row;
 }
 .about {
-  height: 50vh;
+  /* height: 50vh; */
+  flex: 1 1 0;
 }
 .about__image {
   float: left;
+  flex: 1 1 0;
 }
