@@ -1,0 +1,21 @@
+.courserecord__container {
+  background-color: #abfe2c;
+  height: 70vh;
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.record__logo {
+  object-fit: contain;
+  width: 60vw;
+  height: 50vh;
+  float: left;
+}
+.name__conatiner {
+  float: left;
+}
+.course {
+  cursor: pointer;
+}
